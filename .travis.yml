@@ -1,0 +1,16 @@
+language: go
+go:
+- 1.10.x
+script:
+- make build-linux
+- make build-windows
+- make build-osx
+deploy:
+  provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: rEmhLXidXKuTaBKJ+x3Y+tppiX+zd+aGrBkUuhI1gkzMchRRiNF36RjeXSDxcw++5DNwRekTu+yhnr45Kzh8KIzEvdb/5teFI1Ao6dublmbJ/wLt7quG5oI7sCznadybSeek6/sDLYUE+sP0JXUoIZS/NPVL8q3+THBHwbvXhd4gCnw99X7Hq72i9rNHqnGip24w89rOMyRTNmZqP9Pos35a9+0vgn1ps+tlj1mLQlfivpx/cvc3CqWs/qzepbXmGesiZSDnMmeEOPip9FEc0bOrBZVIdgWyxCNDar8M4IZdSykmS40G2yfUMwCeLkiI/YDtrIhnct8Pxj0rXO9t+QrQ7kpsqygVXdC18bdsyDBV9ZhQA7VyxcMh8lITLcCYnesG2C+UwbiqSJ07c37JMGrBJoEnl8eT4VBrqpvm850pG2RmdyaIpI6gkq99tFcRMS2QLyK/rvp4kerFd0x73Gz6qFucWr0dts8elpuTzP/WBSA3ekXakxtz2mzdqAn8ZTGfu5QON181RUGBaFZ5chWFWR4IXzYdOOEz9MGpCxYszASBEdPF2BxZcS1nWF5aLVj6hj7kq5Y2TyS6xTrGiT4H5THpujYI4gvE2meQ1MhcwrTJvUXBjOEm4F0/3n4a/Qo6e2Lduuv5379gTC0c+55LWcFypl9vNd3LoZl9FoU=
+  file_glob: true
+  file: bin/*
+  on:
+    tags: true
